@@ -1,0 +1,84 @@
+{
+    "id": "root",
+    "name": "Parent",
+    "expanded": true,
+    "children": [
+        {
+            "id": "1",
+            "name": "Child - 1",
+            "expanded": false,
+            "children": [
+                {
+                    "id": "4",
+                    "name": "Child - 4",
+                    "expanded": false
+                },
+                {
+                    "id": "5",
+                    "name": "Child - 5",
+                    "expanded": false
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "name": "Child - 3",
+            "expanded": false,
+            "children": [
+                {
+                    "id": "8",
+                    "name": "Child - 4",
+                    "expanded": false,
+                    "children": [
+                        {
+                            "id": "10",
+                            "name": "Child - 10",
+                            "expanded": false
+                        },
+                        {
+                            "id": "11",
+                            "name": "Child - 11",
+                            "expanded": false,
+                            "children": [
+                                {
+                                    "id": "10365363",
+                                    "name": "Child - 10",
+                                    "expanded": false
+                                },
+                                {
+                                    "id": "1211231",
+                                    "name": "Child - 11",
+                                    "expanded": false,
+                                    "children": [
+                                        {
+                                            "id": "1241240",
+                                            "name": "Child - 10",
+                                            "expanded": false
+                                        },
+                                        {
+                                            "id": "11241241",
+                                            "name": "Child - 11",
+                                            "expanded": false,
+                                            "children": [
+                                                {
+                                                    "id": "14234210",
+                                                    "name": "Child - 10",
+                                                    "expanded": false
+                                                },
+                                                {
+                                                    "id": "112313131",
+                                                    "name": "Child - 11",
+                                                    "expanded": false
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

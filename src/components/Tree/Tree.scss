@@ -1,0 +1,22 @@
+ul {
+    list-style: none;
+    padding: 5px 0 0 11px
+}
+
+li {
+    padding: 0 5px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+li:hover {
+    cursor: pointer;
+    background: #D3D3D3;
+}
+
+.tree-name {
+    display: flex;
+    align-items: center;
+}
