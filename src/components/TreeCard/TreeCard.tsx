@@ -1,19 +1,8 @@
-import {
-    Box,
-    List,
-    ListItem,
-    ListItemText,
-    MenuItem,
-    Select,
-    SelectChangeEvent,
-    Tab,
-    Tabs,
-    Typography,
-} from "@mui/material"
-import { useEffect, useState } from "react"
-import { useAppDispatch, useAppSelector } from "../../hooks/hooks"
+import { Box, List, Tab, Tabs, Typography } from "@mui/material"
+import { useState } from "react"
+import { useAppSelector } from "../../hooks/hooks"
 import { Properties, TabPanelProps } from "../../models/models"
-import { fetchEditData } from "../../store/actions/tree"
+import { ListItem } from "../ListItem/ListItem"
 
 function TabPanel(props: TabPanelProps) {
     const { children, value, index, ...other } = props
@@ -43,51 +32,13 @@ function a11yProps(index: number) {
 }
 
 export const TreeCard = () => {
-    const dispatch = useAppDispatch()
-
     const [value, setValue] = useState(0)
 
     const { treeProperties }: { treeProperties: Properties[] | [] } =
         useAppSelector((state) => state.tree)
 
-    const [selectValue, setSelectValue] = useState<string>()
-    const [selectId, setSelectId] = useState<string>()
-
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue)
-    }
-
-    const handleSelectChange = (event: SelectChangeEvent, id: string) => {
-        setSelectValue(event.target.value as string)
-        setSelectId(id)
-    }
-
-    useEffect(() => {
-        dispatch(fetchEditData(treeProperties, selectValue, selectId))
-    }, [selectId, selectValue])
-
-    const renderListItem = (list: Properties) => {
-        if (list.edit) {
-            return (
-                <Select
-                    value={selectValue}
-                    defaultValue={list.editValue}
-                    onChange={(e) => handleSelectChange(e, list.id)}
-                >
-                    {list.content.map((item) => (
-                        <MenuItem key={item} value={item}>
-                            {item}
-                        </MenuItem>
-                    ))}
-                </Select>
-            )
-        }
-
-        return list.content.map((item: string) => (
-            <ListItem key={item}>
-                <ListItemText primary={item} />
-            </ListItem>
-        ))
     }
 
     return (
@@ -115,7 +66,9 @@ export const TreeCard = () => {
                         value={value}
                         index={Number(item.id)}
                     >
-                        <List>{renderListItem(item)}</List>
+                        <List>
+                            <ListItem list={item} />
+                        </List>
                     </TabPanel>
                 )
             })}

@@ -12,6 +12,10 @@ const Layout = () => {
     const { treeProperties }: { treeProperties: Properties[] | [] } =
         useAppSelector((state) => state.tree)
 
+    const { selectedTitle }: { selectedTitle: string } = useAppSelector(
+        (state) => state.tree
+    )
+
     const dispatch = useAppDispatch()
 
     useEffect(() => {
@@ -63,6 +67,8 @@ const Layout = () => {
                     </Grid>
                     <Grid item xs={9}>
                         <div className="header-card">
+                            <h1>{selectedTitle}</h1>
+
                             <Button variant="contained" component="label">
                                 Загрузить файл
                                 <input
@@ -84,7 +90,13 @@ const Layout = () => {
                             </Button>
                         </div>
 
-                        <TreeCard />
+                        {treeProperties.length !== 0 ? (
+                            <TreeCard />
+                        ) : (
+                            <h1 style={{ textAlign: "center" }}>
+                                Обьект не выбран
+                            </h1>
+                        )}
                     </Grid>
                 </Grid>
             </Card>

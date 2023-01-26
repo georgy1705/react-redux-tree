@@ -1,6 +1,6 @@
 export type Action = {
     type: string
-    data?: any
+    data?: TreeProps | Properties[] | string
 }
 
 export type Properties = {
@@ -26,6 +26,15 @@ export interface TabPanelProps {
 
 export interface TreeProps {
     data: Node[]
+}
+
+export interface SelectProps {
+    list: Properties
+    value: string | undefined
+}
+
+export interface ListItemProps {
+    list: Properties
 }
 
 export interface TreeNodeProps {

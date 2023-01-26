@@ -32,6 +32,13 @@ export function fetchDataProperties(data: Properties[]) {
     }
 }
 
+export function fetchSelectedTitle(data: string) {
+    return {
+        type: "set_selected_title",
+        data,
+    }
+}
+
 export function fetchEditData(
     treeProperties: Properties[],
     value: string | undefined,

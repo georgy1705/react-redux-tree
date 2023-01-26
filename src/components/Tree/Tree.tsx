@@ -5,7 +5,10 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore"
 import "./Tree.scss"
 import { TreeWrapper } from "./TreeWrapper"
 import { useAppDispatch } from "../../hooks/hooks"
-import { fetchDataProperties } from "../../store/actions/tree"
+import {
+    fetchDataProperties,
+    fetchSelectedTitle,
+} from "../../store/actions/tree"
 
 export const Tree: FC<TreeProps> = ({ data }) => {
     return (
@@ -28,6 +31,7 @@ const TreeNode: FC<TreeNodeProps> = ({ node }) => {
 
         if (!hasChild) {
             dispatch(fetchDataProperties(node.properties!))
+            dispatch(fetchSelectedTitle(node.name))
         }
     }
 
