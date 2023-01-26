@@ -93,9 +93,9 @@ const Layout = () => {
                         {treeProperties.length !== 0 ? (
                             <TreeCard />
                         ) : (
-                            <h1 style={{ textAlign: "center" }}>
+                            <h2 style={{ textAlign: "left" }}>
                                 Обьект не выбран
-                            </h1>
+                            </h2>
                         )}
                     </Grid>
                 </Grid>
