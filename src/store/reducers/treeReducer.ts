@@ -2,19 +2,32 @@ import { Action } from "../../models/models"
 
 const initialState = {
     treeData: [],
-    loading: false
+    treeProperties: [],
+    loading: false,
 }
-
 
 export default function treeReducer(state = initialState, action: Action) {
     switch (action.type) {
-        case 'data_success':
+        case "data_success":
             return {
-                ...state, loading: false, treeData: [action.data]
+                ...state,
+                loading: false,
+                treeData: [action.data],
             }
-        case 'start_loading':
+        case "start_loading":
             return {
-                ...state, loading: true
+                ...state,
+                loading: true,
+            }
+        case "set_properties":
+            return {
+                ...state,
+                treeProperties: action.data,
+            }
+        case "set_edit_data":
+            return {
+                ...state,
+                treeProperties: action.data,
             }
         default:
             return state

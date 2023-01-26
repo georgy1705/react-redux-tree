@@ -1,22 +1,65 @@
-ul {
-    list-style: none;
-    padding: 5px 0 0 11px
-}
+$border-color: rgba(0, 66, 105, 0.28);
+$background-wrapper: #DEE4E8;
 
-li {
-    padding: 0 5px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
 
-li:hover {
-    cursor: pointer;
-    background: #D3D3D3;
-}
 
-.tree-name {
-    display: flex;
-    align-items: center;
+.Tree {
+    width: 100%;
+    position: relative;
+    height: 100%;
+    float: left;
+    border-right: 1px solid $border-color;
+    overflow-y: scroll;
+    font-size: 18px;
+  
+    .tree-items {
+      overflow-x: auto;
+    }
+  
+     
+  
+    ul {
+      list-style: none;
+      padding: 4px 0 0 12px;
+      margin: 0;
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+  
+    li {
+      padding: 0 5px;
+      margin: 0;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+  
+      &:hover {
+        .tree-wrapper {
+          background: $background-wrapper;
+        }
+      }
+    }
+  
+  
+    .tree-name {
+      height: 30px;
+      display: flex;
+      align-items: center;
+      z-index: 10;
+      min-width: 180px;
+      cursor: pointer;
+    }
+  
+    .tree-wrapper {
+      height: 30px;
+      cursor: pointer;
+      position: absolute;
+      left: 0;
+      z-index: 5;
+      min-width: 100%;
+    }
 }
+  

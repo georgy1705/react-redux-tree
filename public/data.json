@@ -1,77 +1,92 @@
 {
     "id": "root",
-    "name": "Parent",
-    "expanded": true,
+    "name": "Автомобили",
     "children": [
         {
             "id": "1",
-            "name": "Child - 1",
-            "expanded": false,
+            "name": "Грузовые",
             "children": [
                 {
                     "id": "4",
-                    "name": "Child - 4",
-                    "expanded": false
+                    "name": "Камаз",
+                    "properties": [
+                        {
+                            "id": "0",
+                            "title": "Характеристики авто",
+                            "edit": false,
+                            "content": [
+                                "Характеристика 1",
+                                "Характеристика 2"
+                            ]
+                        },
+                        {
+                            "id": "1",
+                            "title": "Цвета авто",
+                            "edit": true,
+                            "editValue": "Синий",
+                            "content": [
+                                "Синий",
+                                "Красный"
+                            ]
+                        }
+                    ]
                 },
                 {
                     "id": "5",
-                    "name": "Child - 5",
-                    "expanded": false
+                    "name": "Форд",
+                    "properties": [
+                        {
+                            "id": "0",
+                            "title": "Характеристики авто",
+                            "edit": false,
+                            "content": [
+                                "Характеристика 1",
+                                "Характеристика 2"
+                            ]
+                        },
+                        {
+                            "id": "1",
+                            "title": "Цвета авто",
+                            "edit": true,
+                            "editValue": "Зеленый",
+                            "content": [
+                                "Зеленый",
+                                "Черный"
+                            ]
+                        }
+                    ]
                 }
             ]
         },
         {
             "id": "3",
-            "name": "Child - 3",
-            "expanded": false,
+            "name": "Легковые",
             "children": [
                 {
                     "id": "8",
-                    "name": "Child - 4",
-                    "expanded": false,
+                    "name": "Хэтчбек",
                     "children": [
                         {
                             "id": "10",
-                            "name": "Child - 10",
-                            "expanded": false
-                        },
-                        {
-                            "id": "11",
-                            "name": "Child - 11",
-                            "expanded": false,
-                            "children": [
+                            "name": "Мазда",
+                            "properties": [
                                 {
-                                    "id": "10365363",
-                                    "name": "Child - 10",
-                                    "expanded": false
+                                    "id": "0",
+                                    "title": "Характеристики авто",
+                                    "edit": false,
+                                    "content": [
+                                        "Характеристика 1",
+                                        "Характеристика 2"
+                                    ]
                                 },
                                 {
-                                    "id": "1211231",
-                                    "name": "Child - 11",
-                                    "expanded": false,
-                                    "children": [
-                                        {
-                                            "id": "1241240",
-                                            "name": "Child - 10",
-                                            "expanded": false
-                                        },
-                                        {
-                                            "id": "11241241",
-                                            "name": "Child - 11",
-                                            "expanded": false,
-                                            "children": [
-                                                {
-                                                    "id": "14234210",
-                                                    "name": "Child - 10",
-                                                    "expanded": false
-                                                },
-                                                {
-                                                    "id": "112313131",
-                                                    "name": "Child - 11",
-                                                    "expanded": false
-                                                }
-                                            ]
-                                        }
+                                    "id": "1",
+                                    "title": "Цвета авто",
+                                    "edit": true,
+                                    "editValue": "Желтый",
+                                    "content": [
+                                        "Желтый",
+                                        "Красный"
                                     ]
                                 }
                             ]

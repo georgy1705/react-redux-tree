@@ -1,4 +1,5 @@
 import axios from "../../axios/axios"
+import { Properties, TreeProps } from "../../models/models"
 
 export function loadingStart() {
     return {
@@ -6,7 +7,7 @@ export function loadingStart() {
     }
 }
 
-export function fetchDataSuccess(data: any) {
+export function fetchDataSuccess(data: TreeProps) {
     return {
         type: "data_success",
         data,
@@ -22,4 +23,26 @@ export async function fetchData(dispatch: any) {
     const data = response.data
 
     dispatch(fetchDataSuccess(data))
+}
+
+export function fetchDataProperties(data: Properties[]) {
+    return {
+        type: "set_properties",
+        data,
+    }
+}
+
+export function fetchEditData(
+    treeProperties: Properties[],
+    value: string | undefined,
+    id: string | undefined
+) {
+    const data = treeProperties.map((item) =>
+        item.id === id ? { ...item, editValue: value } : item
+    )
+
+    return {
+        type: "set_edit_data",
+        data,
+    }
 }
