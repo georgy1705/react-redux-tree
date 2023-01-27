@@ -15,6 +15,10 @@ $background-wrapper: #DEE4E8;
     .tree-items {
       overflow-x: auto;
     }
+
+    .active {
+      background: $background-wrapper
+    }
   
      
   

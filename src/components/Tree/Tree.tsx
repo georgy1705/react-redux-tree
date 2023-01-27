@@ -4,8 +4,9 @@ import ExpandLessIcon from "@mui/icons-material/ExpandLess"
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore"
 import "./Tree.scss"
 import { TreeWrapper } from "./TreeWrapper"
-import { useAppDispatch } from "../../hooks/hooks"
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks"
 import {
+    fetchActiveTreeItem,
     fetchDataProperties,
     fetchSelectedTitle,
 } from "../../store/actions/tree"
@@ -30,6 +31,8 @@ const TreeNode: FC<TreeNodeProps> = ({ node }) => {
         setIsVisible(!isVisible)
 
         if (!hasChild) {
+            dispatch(fetchActiveTreeItem(node.id))
+
             dispatch(fetchDataProperties(node.properties!))
             dispatch(fetchSelectedTitle(node.name))
         }
@@ -50,7 +53,7 @@ const TreeNode: FC<TreeNodeProps> = ({ node }) => {
                     <div style={{ marginLeft: 5 }}>{node.name}</div>
                 </div>
 
-                <TreeWrapper />
+                <TreeWrapper id={node.id} />
             </li>
 
             <ul className="tree-child">

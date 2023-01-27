@@ -32,6 +32,13 @@ export function fetchDataProperties(data: Properties[]) {
     }
 }
 
+export function fetchActiveTreeItem(data: string) {
+    return {
+        type: "set_active_tree",
+        data,
+    }
+}
+
 export function fetchSelectedTitle(data: string) {
     return {
         type: "set_selected_title",

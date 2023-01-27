@@ -5,6 +5,7 @@ const initialState = {
     treeProperties: [],
     selectedTitle: "",
     loading: false,
+    activeId: "",
 }
 
 export default function treeReducer(state = initialState, action: Action) {
@@ -34,6 +35,11 @@ export default function treeReducer(state = initialState, action: Action) {
             return {
                 ...state,
                 selectedTitle: action.data,
+            }
+        case "set_active_tree":
+            return {
+                ...state,
+                activeId: action.data,
             }
         default:
             return state
