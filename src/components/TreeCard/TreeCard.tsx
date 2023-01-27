@@ -1,5 +1,5 @@
 import { Box, List, Tab, Tabs, Typography } from "@mui/material"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useAppSelector } from "../../hooks/hooks"
 import { Properties, TabPanelProps } from "../../models/models"
 import { ListItem } from "../ListItem/ListItem"
@@ -40,6 +40,10 @@ export const TreeCard = () => {
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue)
     }
+
+    useEffect(() => {
+        setValue(0)
+    }, [treeProperties])
 
     return (
         <>

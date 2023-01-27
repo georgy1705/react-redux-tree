@@ -7,6 +7,12 @@ export function loadingStart() {
     }
 }
 
+export function clearData() {
+    return {
+        type: "clear_data",
+    }
+}
+
 export function fetchDataSuccess(data: TreeProps) {
     return {
         type: "data_success",

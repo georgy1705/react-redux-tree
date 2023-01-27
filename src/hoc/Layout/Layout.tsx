@@ -5,6 +5,7 @@ import { TreeCard } from "../../components/TreeCard/TreeCard"
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks"
 import { Properties, TreeProps } from "../../models/models"
 import {
+    clearData,
     fetchData,
     fetchDataProperties,
     fetchDataSuccess,
@@ -49,8 +50,7 @@ const Layout = () => {
             const data: TreeProps = JSON.parse(e.target.result)
 
             dispatch(fetchDataSuccess(data))
-            dispatch(fetchDataProperties([]))
-            dispatch(fetchSelectedTitle(""))
+            dispatch(clearData())
 
             setOpen(true)
         }
