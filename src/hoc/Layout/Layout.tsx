@@ -110,7 +110,6 @@ const Layout = () => {
                             </Button>
 
                             <Button
-                                disabled={treeProperties.length === 0}
                                 onClick={downloadFile}
                                 variant="contained"
                                 color="success"
@@ -124,7 +123,7 @@ const Layout = () => {
                             <TreeCard />
                         ) : (
                             <h2 style={{ textAlign: "left" }}>
-                                Обьект не выбран
+                                Выберите элемент в дереве для просмотра
                             </h2>
                         )}
                     </Grid>
