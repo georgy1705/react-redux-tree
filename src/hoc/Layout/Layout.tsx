@@ -1,14 +1,20 @@
-import { Button, Card, Container, Grid } from "@mui/material"
-import { useEffect } from "react"
+import { Alert, Button, Card, Container, Grid, Snackbar } from "@mui/material"
+import { useEffect, useState } from "react"
 import { Tree } from "../../components/Tree/Tree"
 import { TreeCard } from "../../components/TreeCard/TreeCard"
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks"
 import { Properties, TreeProps } from "../../models/models"
-import { fetchData, fetchDataSuccess } from "../../store/actions/tree"
+import {
+    fetchData,
+    fetchDataProperties,
+    fetchDataSuccess,
+    fetchSelectedTitle,
+} from "../../store/actions/tree"
 import "./Layout.scss"
 
 const Layout = () => {
     const { treeData } = useAppSelector((state) => state.tree)
+    const { treeEditData } = useAppSelector((state) => state.tree)
     const { treeProperties }: { treeProperties: Properties[] | [] } =
         useAppSelector((state) => state.tree)
 
@@ -20,11 +26,11 @@ const Layout = () => {
 
     useEffect(() => {
         fetchData(dispatch)
-    }, [])
+    }, [dispatch])
 
     const downloadFile = () => {
         let a = document.createElement("a")
-        let file = new Blob([JSON.stringify(treeProperties)], {
+        let file = new Blob([JSON.stringify(treeEditData)], {
             type: "application/json",
         })
         a.href = URL.createObjectURL(file)
@@ -43,8 +49,16 @@ const Layout = () => {
             const data: TreeProps = JSON.parse(e.target.result)
 
             dispatch(fetchDataSuccess(data))
+            dispatch(fetchDataProperties([]))
+            dispatch(fetchSelectedTitle(""))
+
+            setOpen(true)
         }
     }
+
+    const [open, setOpen] = useState(false)
+
+    const handleCloseNotification = () => setOpen(false)
 
     return (
         <Container
@@ -56,6 +70,22 @@ const Layout = () => {
                 alignItems: "center",
             }}
         >
+            <Snackbar
+                autoHideDuration={3000}
+                anchorOrigin={{ vertical: "top", horizontal: "center" }}
+                open={open}
+                onClose={handleCloseNotification}
+                key={"top center"}
+            >
+                <Alert
+                    onClose={handleCloseNotification}
+                    severity="success"
+                    sx={{ width: "100%" }}
+                >
+                    Файл успешно загружен!
+                </Alert>
+            </Snackbar>
+
             <Card variant="outlined" style={{ height: "65%", width: "100%" }}>
                 <Grid container spacing={2} sx={{ height: "100%" }}>
                     <Grid item xs={3} sx={{ height: "100%" }}>

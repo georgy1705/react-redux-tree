@@ -3,6 +3,7 @@ import { Action } from "../../models/models"
 const initialState = {
     treeData: [],
     treeProperties: [],
+    treeEditData: [],
     selectedTitle: "",
     loading: false,
     activeId: "",
@@ -14,7 +15,7 @@ export default function treeReducer(state = initialState, action: Action) {
             return {
                 ...state,
                 loading: false,
-                treeData: [action.data],
+                treeData: action.data,
             }
         case "start_loading":
             return {
@@ -29,7 +30,7 @@ export default function treeReducer(state = initialState, action: Action) {
         case "set_edit_data":
             return {
                 ...state,
-                treeProperties: action.data,
+                treeEditData: action.data,
             }
         case "set_selected_title":
             return {

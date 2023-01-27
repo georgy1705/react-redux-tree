@@ -1,5 +1,5 @@
 import axios from "../../axios/axios"
-import { Properties, TreeProps } from "../../models/models"
+import { Properties, TreeProps, Node } from "../../models/models"
 
 export function loadingStart() {
     return {
@@ -49,11 +49,27 @@ export function fetchSelectedTitle(data: string) {
 export function fetchEditData(
     treeProperties: Properties[],
     value: string | undefined,
-    id: string | undefined
+    id: string | undefined,
+    treeData: Node[],
+    activeId: string
 ) {
-    const data = treeProperties.map((item) =>
+    const dataElement = treeProperties.map((item) =>
         item.id === id ? { ...item, editValue: value } : item
     )
+
+    let data = treeData
+
+    const rec = (data: any) => {
+        for (let i = 0; i < data.length; i++) {
+            if (data[i].id === activeId) data[i].properties = dataElement
+
+            if (!!data[i].children) {
+                rec(data[i].children)
+            }
+        }
+    }
+
+    rec(data)
 
     return {
         type: "set_edit_data",

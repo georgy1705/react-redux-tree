@@ -4,7 +4,7 @@ import ExpandLessIcon from "@mui/icons-material/ExpandLess"
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore"
 import "./Tree.scss"
 import { TreeWrapper } from "./TreeWrapper"
-import { useAppDispatch, useAppSelector } from "../../hooks/hooks"
+import { useAppDispatch } from "../../hooks/hooks"
 import {
     fetchActiveTreeItem,
     fetchDataProperties,

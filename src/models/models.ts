@@ -1,6 +1,6 @@
 export type Action = {
     type: string
-    data?: TreeProps | Properties[] | string
+    data?: TreeProps | Properties[] | string | Node[]
 }
 
 export type Properties = {
@@ -11,7 +11,7 @@ export type Properties = {
     content: string[]
 }
 
-type Node = {
+export type Node = {
     id: string
     name: string
     children?: Node[]
