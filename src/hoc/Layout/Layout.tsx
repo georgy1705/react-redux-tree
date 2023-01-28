@@ -7,9 +7,7 @@ import { Properties, TreeProps } from "../../models/models"
 import {
     clearData,
     fetchData,
-    fetchDataProperties,
     fetchDataSuccess,
-    fetchSelectedTitle,
 } from "../../store/actions/tree"
 import "./Layout.scss"
 

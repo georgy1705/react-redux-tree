@@ -42,7 +42,7 @@ $background-wrapper: #DEE4E8;
   
       &:hover {
         .tree-wrapper {
-          background: $background-wrapper;
+          background: rgba($background-wrapper, 30%);
         }
       }
     }
